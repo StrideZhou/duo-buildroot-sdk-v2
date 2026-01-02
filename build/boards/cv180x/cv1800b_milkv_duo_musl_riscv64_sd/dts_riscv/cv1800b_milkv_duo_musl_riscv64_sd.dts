@@ -41,3 +41,11 @@
        clock-frequency = <100000>;
 };
 
+&porta {
+    pps_gpio: pps-gpio {
+        compatible = "pps-gpio";
+        gpios = <&porta 15 GPIO_ACTIVE_HIGH>;  // XGPIOA[15]
+        assert-rising-edge;                    // 大多数 GPS 模块 PPS 上升沿有效
+        status = "okay";
+    };
+};
